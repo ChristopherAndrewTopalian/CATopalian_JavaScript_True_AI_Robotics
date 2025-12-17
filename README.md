@@ -15,6 +15,11 @@ A course in True AI Robotics with a focus on motion tracking and motion control.
 
 [game_loop_vs_true_ai_loop](src/md/motion/game_loop_vs_true_ai_loop.md)
 
+---
+
+# Index
+https://christopherandrewtopalian.github.io/CATopalian_JavaScript_True_AI_Robotics/CATopalian_JavaScript_True_AI_Robotics.html
+
 //----//
 
 // Dedicated to God the Father  
