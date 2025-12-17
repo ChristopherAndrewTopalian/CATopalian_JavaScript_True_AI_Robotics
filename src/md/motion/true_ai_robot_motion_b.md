@@ -74,10 +74,6 @@ If you want “true AI movement” to feel human-like:
 
 ---
 
-If you want, I can design you a **dual-loop heartbeat architecture** diagram that shows exactly where `setInterval`, `requestAnimationFrame`, and event-driven speed bursts fit together to emulate human-like awareness and reaction. That’d be the blueprint for your AI brain.
-
----
-
 //----//
 
 // Dedicated to God the Father  
