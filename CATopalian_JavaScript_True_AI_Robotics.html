@@ -1,0 +1,150 @@
+<!-- Dedicated to God the Father -->
+<!-- All Rights Reserved Christopher Andrew Topalian Copyright 2000-2025 -->
+<!-- https://github.com/ChristopherTopalian -->
+<!-- https://github.com/ChristopherAndrewTopalian -->
+<!-- CATopalian_JavaScript_True_AI_Robotics.html -->
+
+<html>
+<head>
+<title> CATopalian JavaScript True AI Robotics </title>
+
+<style>
+
+body
+{
+    background-color: rgb(0, 0, 0);
+    font-family: Arial;
+    font-weight: bold;
+    color: rgb(255, 255, 255);
+    text-shadow: 0px 2px 2px rgba(0, 0, 0, 0.9);
+}
+
+a
+{
+    color: rgb(0, 255, 255);
+    text-decoration: none;
+}
+
+a:hover
+{
+    color: rgb(255, 255, 255);
+}
+
+a:active
+{
+    color: rgb(255, 0, 255);
+}
+
+</style>
+
+<script>
+
+// shortcuts.js
+
+function ge(whichId)
+{
+    let result = document.getElementById(whichId);
+    return result;
+}
+
+function ce(whichType)
+{
+    let result = document.createElement(whichType);
+    return result;
+}
+
+function ba(whichElement)
+{
+    let result = document.body.append(whichElement);
+    return result;
+}
+
+function cl(whichMessage)
+{
+    let result = console.log(whichMessage);
+    return result;
+}
+
+function ct(whichText)
+{
+    let result = document.createTextNode(whichText);
+    return result;
+}
+
+function gr(whichId)
+{
+    let result =  ge(whichId).getBoundingClientRect();
+    return result;
+}
+
+//-//
+
+function makeAppLink()
+{
+    // we add a background image
+    let backgroundImg = ce('img');
+    backgroundImg.id = 'background';
+    backgroundImg.src = 'src/media/textures/bg/002.webp';
+    backgroundImg.alt = 'Background';
+    backgroundImg.style.position = 'absolute';
+    backgroundImg.style.top = '0px';
+    backgroundImg.style.left = '0px';
+    backgroundImg.style.width = '100vw';
+    backgroundImg.style.height = '100vh';
+    backgroundImg.style.opacity = 0.0;
+    backgroundImg.style.transition = 'opacity 4.0s ease-in-out';
+    backgroundImg.style.zIndex = 1;
+    setTimeout(function()
+    {
+        backgroundImg.style.opacity = 1.0; 
+    }, 10);
+    ba(backgroundImg);
+
+    //-//
+
+    let mainDiv = ce('div');
+    mainDiv.style.display = 'flex';
+    mainDiv.style.flexDirection = 'column';
+    mainDiv.style.position = 'absolute';
+    mainDiv.style.margin = 10 + 'px';
+    mainDiv.style.zIndex = 10;
+    mainDiv.style.opacity = 0.0;
+    mainDiv.style.transition = 'opacity 4.0s ease-in-out';
+    setTimeout(function()
+    {
+        mainDiv.style.opacity = 1.0; 
+    }, 10);
+    ba(mainDiv);
+
+    //-//
+
+    let instructions = ce('div');
+    instructions.textContent = 'Click on the Link Below to Open the Application';
+    mainDiv.append(instructions);
+
+    //-//
+
+    let link001 = ce('a');
+    link001.href = 'src/js/motion_tracking/motion_tracking_001/CATopalian_JavaScript_Motion_Tracking_001.html';
+    link001.textContent = '* CATopalian_JavaScript_Motion_Tracking_001';
+    link001.style.fontSize = 20 + 'px';
+    link001.style.fontWeight = 'bold';
+    link001.target = '_blank';
+    mainDiv.append(link001);
+}
+
+function whenLoaded()
+{
+    makeAppLink();
+}
+
+</script>
+
+</head>
+
+<body onload = 'whenLoaded();'>
+
+</body>
+
+</html>
+

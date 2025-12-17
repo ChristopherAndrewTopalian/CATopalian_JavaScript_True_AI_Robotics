@@ -1,0 +1,278 @@
+<!-- Dedicated to God the Father -->
+<!-- All Rights Reserved Christopher Andrew Topalian Copyright 2000-2025 -->
+<!-- https://github.com/ChristopherTopalian -->
+<!-- https://github.com/ChristopherAndrewTopalian -->
+<!-- CATopalian_JavaScript_Motion_Tracking_001.html -->
+
+<html>
+<title> CATopalian JavaScript Motion Tracking 001 </title>
+<head>
+
+<style>
+
+body
+{
+    background-color: rgb(30, 30, 30);
+    overflow: hidden;
+}
+
+</style>
+
+<script>
+
+// set frames per second (60 updates per second)
+let fps = 60;
+
+// store the interval ID so we can start or stop the loop
+let interval001;
+
+// references to our two objects
+let mouse;
+let cat;
+
+// horizontal position of the mouse (starts at 0px from the left)
+let mouseX = 0;
+
+// speed of the mouse in pixels per frame
+let mouseSpeed = 2;
+
+// flag to know whether mouse is moving right (true) or left (false)
+let movingRight = true;
+
+// horizontal position of the cat (starts at 0px from the left)
+let catX = 0;
+
+// speed of the cat in pixels per frame
+let catSpeed = 1;
+
+//----//
+
+// shortcuts.js
+
+// gets element by id
+function ge(whichId)
+{
+    // find element by its id
+    let result = document.getElementById(whichId);
+    return result;
+}
+
+//----//
+
+// creates element of a given type
+function ce(whichType)
+{
+    // create a new element like 'div'
+    let result = document.createElement(whichType);
+    return result;
+}
+
+//----//
+
+// appends an element to the body
+function ba(whichElement)
+{
+    // add the element to the page
+    let result = document.body.append(whichElement);
+    return result;
+}
+
+//----//
+
+// log a message to the console
+function cl(whichMessage)
+{
+    // write message in console
+    let result = console.log(whichMessage);
+    return result;
+}
+
+//----//
+
+// get bounding rectangle of element (position + size)
+function gr(whichId)
+{
+    // fetch rectangle data for given element id
+    let result = ge(whichId).getBoundingClientRect();
+    return result;
+}
+
+//----//
+
+// makeBg
+
+function makeBg()
+{
+    // we add a background image
+    let backgroundImg = ce('img');
+    backgroundImg.id = 'background';
+    backgroundImg.src = '../../../media/textures/bg/field/001.webp';
+    backgroundImg.alt = 'Background';
+    backgroundImg.style.position = 'absolute';
+    backgroundImg.style.top = '0px';
+    backgroundImg.style.left = '0px';
+    backgroundImg.style.width = '100vw';
+    backgroundImg.style.height = '100vh';
+    backgroundImg.style.opacity = 0.0;
+    backgroundImg.style.transition = 'opacity 4.0s ease-in-out';
+    backgroundImg.style.zIndex = 0;
+    setTimeout(function()
+    {
+        backgroundImg.style.opacity = 1.0; 
+    }, 10);
+    ba(backgroundImg);
+}
+
+// create our two players (mouse + cat)
+function makePlayers()
+{
+    // create mouse
+    let mouse = ce('img');
+    mouse.id = 'mouse';
+    mouse.style.position = 'absolute';
+    mouse.style.top = '180px';
+    mouse.style.left = '0px';
+    mouse.style.width = '40px';
+    mouse.style.height = '50px';
+    mouse.src = '../../../media/textures/characters/mouse_001/001.png';
+    ba(mouse);
+
+    //-//
+
+    // create cat
+    let cat = ce('img');
+    cat.id = 'cat';
+    cat.style.position = 'absolute';
+    cat.style.top = '250px';
+    cat.style.left = '0px';
+    cat.style.width = '45px';
+    cat.style.height = '80px';
+    cat.src = '../../../media/textures/characters/cat_002/001.png';
+    ba(cat);
+}
+
+//----//
+
+// move the mouse left/right, bouncing at window edges
+function movePixel()
+{
+    // if mouse moving right
+    if (movingRight)
+    {
+        // increase x position by speed
+        mouseX += mouseSpeed;
+
+        mouse.style.transform = 'scaleX(-1)';
+
+        // check right edge (minus width of mouse)
+        if (mouseX >= window.innerWidth - 20)
+        {
+            mouse.style.transform = 'scaleX(1)';
+
+            // switch direction to left
+            movingRight = false;
+        }
+    }
+    else
+    {
+        // decrease x position by speed
+        mouseX -= mouseSpeed;
+
+        // check left edge
+        if (mouseX <= 0)
+        {
+            // switch direction to right
+            movingRight = true;
+        }
+    }
+
+    // apply new position to mouse
+    mouse.style.left = mouseX + "px";
+}
+
+//----//
+
+// move the cat so it follows the mouse horizontally
+function movePlayer()
+{
+    // if cat is left of mouse
+    if (catX < mouseX)
+    {
+        cat.style.transform = 'scaleX(1)';
+
+        // move cat right
+        catX += catSpeed;
+    }
+    // if cat is right of mouse
+    else if (catX > mouseX)
+    {
+        cat.style.transform = 'scaleX(-1)';
+
+
+        // move cat left
+        catX -= catSpeed;
+    }
+
+    // apply new position to cat
+    cat.style.left = catX + "px";
+}
+
+//----//
+
+function gameLoop()
+{
+        // move the mouse
+        movePixel();
+
+        // move the cat
+        movePlayer();
+
+        requestAnimationFrame(gameLoop);
+}
+
+// When we are displaying the motion on the computer screen, we use requestAnimationFrame for smooth motion
+// But for robotics, we would use setInterval to ensure correct timing.
+// main game loop using setInterval
+function gameLoopRobotics()
+{
+    // repeat code every frame based on fps
+    interval001 = setInterval(function()
+    {
+        // move the mouse
+        movePixel();
+
+        // move the cat
+        movePlayer();
+    }, 1000 / fps);
+}
+
+//----//
+
+// when the page loads, set everything up
+function whenLoaded()
+{
+    // create the background image
+    makeBg();
+
+    // create the mouse + cat divs
+    makePlayers();
+
+    // assign worldwide variables to the created elements
+    mouse = ge("mouse");
+
+    cat = ge("cat");
+
+    // start the main loop
+    gameLoop();
+}
+
+</script>
+
+</head>
+
+<body onload = 'whenLoaded();'>
+
+</body>
+
+</html>
+
