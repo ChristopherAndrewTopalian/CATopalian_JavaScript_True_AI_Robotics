@@ -2,7 +2,7 @@
 
 # game loop vs true ai loop
 
-when we build programs, we often want things to repeat over and over again.
+When we build programs, we often want things to repeat over and over again.
 but **not all loops are the same** — it depends on whether we’re building for **humans (games/visuals)** or for **machines (robots/ai)**.
 
 ---

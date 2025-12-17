@@ -1,6 +1,6 @@
 # True AI Motion
 
-**continuous, natural movement for an AI-driven thing** — whether that’s a robot or a simulated character — you’re describing something that works more like a **central “heartbeat” loop** than a one-off `for` loop.
+**continuous, natural movement for an AI-driven thing** — Whether that’s a robot or a simulated character — you’re describing something that works more like a **central “heartbeat” loop** than a one-off `for` loop.
 
 Here’s the breakdown:
 
@@ -69,7 +69,9 @@ It’s never just a single `for` loop that runs once — true AI movement is con
 
 ---
 
-If you want, I can sketch you a **“central brain” diagram** showing how sensors, AI, and movement commands flow in a real-time loop so it’s clear where `requestAnimationFrame` vs fixed timestep fits in. That’d make it easier to design.
+Image a **“central brain”** of sensors, AI, and movement commands flowing in a real-time loop 
+
+`requestAnimationFrame` vs fixed timestep
 
 ---
 
