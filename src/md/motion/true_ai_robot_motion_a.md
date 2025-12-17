@@ -1,6 +1,6 @@
 # True AI Motion
 
-**continuous, natural movement for an AI-driven thing** — Whether that’s a robot or a simulated character — you’re describing something that works more like a **central “heartbeat” loop** than a one-off `for` loop.
+**Continuous, natural movement for an AI-driven thing** — Whether that’s a robot or a simulated character — you’re describing something that works more like a **central “heartbeat” loop** than a one-off `for` loop.
 
 Here’s the breakdown:
 
