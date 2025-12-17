@@ -4,7 +4,7 @@ A course in True AI Robotics with a focus on motion tracking and motion control.
 ---
 
 # Scripts
-[Motion Tracking 001](src/scripts/motion_tracking/motion_tracking_001/CATopalian_JavaScript_Motion_Tracking_001.html)
+[Motion Tracking 001](src/js/motion_tracking/motion_tracking_001/CATopalian_JavaScript_Motion_Tracking_001.html)
 
 # Tutorials
 [true_ai_robot_motion_a](src/md/motion/true_ai_robot_motion_a.md)
